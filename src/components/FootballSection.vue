@@ -14,9 +14,12 @@ import FootballLatestStats from './FootballLatestStats.vue'
 section {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     padding: 20px;
-    margin: 40px;
+    margin: 20px;
     background-color: rgb(66, 107, 107);
+    width: 100%;
+    max-width: 600px;
+    min-width: 400px;
 }
 </style>
