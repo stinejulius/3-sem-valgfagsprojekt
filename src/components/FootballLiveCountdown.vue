@@ -90,6 +90,10 @@ function SetupCountdown() {
 </template>
 
 <style scoped>
+h1 {
+    font-weight: 700;
+}
+
 #countdown-content {
     display: flex;
     flex-direction: column;
@@ -98,6 +102,7 @@ function SetupCountdown() {
     padding: 15px;
     min-width: 500px;
     background-color: darkslategray;
+    border-radius: 10px;
 }
 
 #countdown {

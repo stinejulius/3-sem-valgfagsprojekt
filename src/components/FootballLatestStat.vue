@@ -28,8 +28,10 @@
 #game-stat {
     display: flex;
     justify-content: space-between;
-    background-color: darkslategray;
+    background-color: rgb(27, 54, 54);
     padding: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .team-info {
