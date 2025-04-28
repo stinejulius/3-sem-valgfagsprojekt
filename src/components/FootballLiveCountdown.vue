@@ -69,7 +69,7 @@ function SetupCountdown() {
                 <h2> {{ homeTeamName }} </h2>
             </div>
             <div id="versus-text">
-                <h2> vs. </h2>
+                <h2 class="bold"> vs. </h2>
             </div>
             <div class="team-logo-name">
                 <img class="team-img" :src="awayTeamLogo" alt="Team logo">
@@ -103,6 +103,10 @@ function SetupCountdown() {
 </template>
 
 <style scoped>
+.bold {
+    font-weight: 700;
+}
+
 h1 {
     font-weight: 700;
 }
@@ -120,9 +124,10 @@ h1 {
 
 #countdown-teams {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 25px;
-    align-items: end;
+    align-items: start;
+    width: 80%;
 }
 
 .team-logo-name {
@@ -130,6 +135,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 40%;
 }
 
 .team-img {
@@ -137,9 +143,9 @@ h1 {
     max-width: 65px;
 }
 
-/* #versus-text {
-    display: flex;
-} */
+#versus-text {
+    padding-top: 15px;
+}
 
 #countdown {
     display: flex;
