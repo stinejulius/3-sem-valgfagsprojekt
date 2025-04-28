@@ -63,7 +63,20 @@ function SetupCountdown() {
 <template>
     <div id="countdown-content">
         <h1> Næste Herre Kamp </h1>
-        <h2> {{ homeTeamName }} vs. {{ awayTeamName }} </h2>
+        <div id="countdown-teams">
+            <div class="team-logo-name">
+                <img class="team-img" :src="homeTeamLogo" alt="Team logo">
+                <h2> {{ homeTeamName }} </h2>
+            </div>
+            <div id="versus-text">
+                <h2> vs. </h2>
+            </div>
+            <div class="team-logo-name">
+                <img class="team-img" :src="awayTeamLogo" alt="Team logo">
+                <h2> {{ awayTeamName }} </h2>
+            </div>
+        </div>
+        <!-- <h2> {{ homeTeamName }} vs. {{ awayTeamName }} </h2> -->
         <p> {{ new Intl.DateTimeFormat("da-DK", {
             dateStyle: "full",
             timeStyle: "short",
@@ -104,6 +117,29 @@ h1 {
     background-color: darkslategray;
     border-radius: 10px;
 }
+
+#countdown-teams {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: end;
+}
+
+.team-logo-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.team-img {
+    width: 100%;
+    max-width: 65px;
+}
+
+/* #versus-text {
+    display: flex;
+} */
 
 #countdown {
     display: flex;
