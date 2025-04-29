@@ -26,9 +26,9 @@ onMounted(() => {
 <template>
     <div id="stat-list">
         <h2> De 5 sidste kampe </h2>
-        <FootballLatestStat v-for="game in footballGames" :key="game.fixture.id" :homeTeamName="game.teams.home.name"
-            :homeTeamLogo="game.teams.home.logo" :homeTeamScore="game.goals.home" :awayTeamName="game.teams.away.name"
-            :awayTeamLogo="game.teams.away.logo" :awayTeamScore="game.goals.away"/>
+        <FootballLatestStat v-for="footballGame in footballGames" :key="footballGame.fixture.id" :homeTeamName="footballGame.teams.home.name"
+            :homeTeamLogo="footballGame.teams.home.logo" :homeTeamScore="footballGame.goals.home" :awayTeamName="footballGame.teams.away.name"
+            :awayTeamLogo="footballGame.teams.away.logo" :awayTeamScore="footballGame.goals.away" />
     </div>
 </template>
 

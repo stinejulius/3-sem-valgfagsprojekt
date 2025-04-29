@@ -47,6 +47,7 @@
     padding: 15px;
     background-color: cadetblue;
     border-radius: 10px;
+    height: 100%;
 }
 
 .info-pair {

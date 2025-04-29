@@ -21,53 +21,53 @@
                 <thead id="table-head">
                     <tr>
                         <th>  </th>
-                        <th> Hjemmehold </th>
-                        <th> Udehold </th>
+                        <th class="bold"> Hjemmehold </th>
+                        <th class="bold"> Udehold </th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
                     <tr>
-                        <th> Skud (På mål / Forbi) </th>
+                        <th class="bold"> Skud (På mål / Forbi) </th>
                         <th> X / Y </th>
                         <th> X / Y </th>
                     </tr>
                     <tr>
-                        <th> Hjørneskud </th>
+                        <th class="bold"> Hjørneskud </th>
                         <th> X </th>
                         <th> X </th>
                     </tr>
                     <tr>
-                        <th> Frispark (Begået / Tilkendt) </th>
+                        <th class="bold"> Frispark (Begået / Tilkendt) </th>
                         <th> X / Y </th>
                         <th> X / Y </th>
                     </tr>
                     <tr>
-                        <th> Offsides </th>
+                        <th class="bold"> Offsides </th>
                         <th> X </th>
                         <th> X </th>
                     </tr>
                     <tr>
-                        <th> Redninger (Målmænd) </th>
+                        <th class="bold"> Redninger (Målmænd) </th>
                         <th> X </th>
                         <th> X </th>
                     </tr>
                     <tr>
-                        <th> Tacklinger (Vundet / Tabt) </th>
+                        <th class="bold"> Tacklinger (Vundet / Tabt) </th>
                         <th> X / Y </th>
                         <th> X / Y </th>
                     </tr>
                     <tr>
-                        <th> Afleveringer (Præcision) </th>
+                        <th class="bold"> Afleveringer (Præcision) </th>
                         <th> X % </th>
                         <th> X % </th>
                     </tr>
                     <tr>
-                        <th> Gule kort </th>
+                        <th class="bold"> Gule kort </th>
                         <th> X </th>
                         <th> X </th>
                     </tr>
                     <tr>
-                        <th> Røde kort </th>
+                        <th class="bold"> Røde kort </th>
                         <th> X </th>
                         <th> X </th>
                     </tr>
@@ -101,5 +101,32 @@
 .goal-score-team {
     display: flex;
     justify-content: space-between;
+}
+
+#statistics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#table {
+    table-layout: fixed;
+    width: 100%;
+    border: 3px solid rgb(27, 54, 54);
+    border-radius: 10px;
+    border-collapse: collapse;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 3px rgb(27, 54, 54); /* this draws the table border  */ 
+}
+
+#table th:first-child {
+    width: 60%;
+    text-align: left;
+}
+
+#table th {
+    padding: 5px;
+    border: 2px solid rgb(27, 54, 54);
 }
 </style>
