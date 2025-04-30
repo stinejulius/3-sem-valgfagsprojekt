@@ -1,5 +1,5 @@
 <script setup>
-
+// The API does not include the information needed for 1.Division :(
 </script>
 
 <template>
@@ -103,6 +103,10 @@
     justify-content: space-between;
 }
 
+.goal-score-team :first-child {
+    padding-right: 10px;
+}
+
 #statistics {
     display: flex;
     flex-direction: column;
@@ -118,11 +122,18 @@
     border-collapse: collapse;
     border-style: hidden; /* hide standard table (collapsed) border */
     box-shadow: 0 0 0 3px rgb(27, 54, 54); /* this draws the table border  */ 
+    background-color: rgb(66, 107, 107);
+    overflow: hidden;
+}
+
+#table-head {
+    background-color: rgb(54, 87, 87);
 }
 
 #table th:first-child {
     width: 60%;
     text-align: left;
+    background-color: rgb(54, 87, 87);
 }
 
 #table th {

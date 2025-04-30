@@ -29,20 +29,20 @@ const props = defineProps({
 <template>
     <div id="game-stat">
         <div class="team-info">
-            <img v-if="props.homeTeamLogo" :src="homeTeamLogo" alt="Hjemmehold logo">
+            <img v-if="homeTeamLogo" :src="homeTeamLogo" alt="Hjemmehold logo">
             <p class="bold"> {{ homeTeamName }} </p>
         </div>
         <div>
-            <h2> {{ props.homeTeamScore !== null ? props.homeTeamScore : '-' }} </h2>
+            <h2> {{ homeTeamScore }} </h2>
         </div>
         <div>
             <h2 class="bold"> - </h2>
         </div>
         <div>
-            <h2> {{ props.awayTeamScore !== null ? props.awayTeamScore : '-' }} </h2>
+            <h2> {{ awayTeamScore }} </h2>
         </div>
         <div class="team-info">
-            <img v-if="props.awayTeamLogo" :src="awayTeamLogo" alt="Udehold logo">
+            <img v-if="awayTeamLogo" :src="awayTeamLogo" alt="Udehold logo">
             <p class="bold"> {{ awayTeamName }} </p>
         </div>
     </div>

@@ -2,20 +2,32 @@
 import StatPopUpStatistics from './StatPopUpStatistics.vue'
 import StatPopUpScore from './StatPopUpScore.vue'
 import StatPopUpGameInfo from './StatPopUpGameInfo.vue'
+
+const props = defineProps({
+    selectedGame: {
+        type: Object,
+        required: true,
+    }
+});
 </script>
 
 <template>
     <section id="game-pop-up">
         <div id="pop-up-header">
-            <h2> Kampinformation </h2>
+            <h2 class="bold"> Kampinformation </h2>
             <div>
-                <img src="../assets/illustrations/close.svg" alt="Kryds symbol">
+                <img @click="$emit('closePopUp')" src="../assets/illustrations/close.svg" alt="Kryds symbol">
             </div>
         </div>
         <div id="pop-up-components">
             <div id="components-score-gameinfo">
-                <StatPopUpScore />
-                <StatPopUpGameInfo />
+                <StatPopUpScore :homeTeamName="selectedGame.teams.home.name"
+                    :homeTeamLogo="selectedGame.teams.home.logo" :homeTeamScore="selectedGame.goals.home"
+                    :awayTeamName="selectedGame.teams.away.name" :awayTeamLogo="selectedGame.teams.away.logo"
+                    :awayTeamScore="selectedGame.goals.away" />
+                <StatPopUpGameInfo :referee="selectedGame.fixture.referee" :league="selectedGame.league.name"
+                    :city="selectedGame.fixture.venue.city" :venue="selectedGame.fixture.venue.name"
+                    :season="selectedGame.league.season" :date="new Date(selectedGame.fixture.date)" />
             </div>
             <StatPopUpStatistics />
         </div>
@@ -23,11 +35,16 @@ import StatPopUpGameInfo from './StatPopUpGameInfo.vue'
 </template>
 
 <style scoped>
+.bold {
+    font-weight: 700;
+}
+
 #game-pop-up {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
+    width: 90%;
+    max-width: 900px;
     padding: 20px;
     border-radius: 10px;
     background-color: rgb(9, 34, 34);

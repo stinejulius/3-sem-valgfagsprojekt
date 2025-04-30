@@ -15,13 +15,13 @@ const countdownSeconds = ref(null);
 const fetchComplete = ref(false);
 
 async function GetData() {
-    let response = await fetch("https://v3.football.api-sports.io/fixtures?league=120&season=2024&team=405&next=1", {
+    const response = await fetch("https://v3.football.api-sports.io/fixtures?league=120&season=2024&team=405&next=1", {
         method: "GET",
         headers: {
             "x-apisports-key": "10c1dce6b1c7f7e049a53bdbc7f8d164",
         },
     })
-    let result = await response.json();
+    const result = await response.json();
 
     console.log(result);
 
@@ -76,7 +76,6 @@ function SetupCountdown() {
                 <h2> {{ awayTeamName }} </h2>
             </div>
         </div>
-        <!-- <h2> {{ homeTeamName }} vs. {{ awayTeamName }} </h2> -->
         <p> {{ new Intl.DateTimeFormat("da-DK", {
             dateStyle: "full",
             timeStyle: "short",
