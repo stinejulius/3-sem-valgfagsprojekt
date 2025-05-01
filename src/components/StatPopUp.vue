@@ -16,6 +16,9 @@ const props = defineProps({
         <div id="pop-up-header">
             <h2 class="bold"> Kampinformation </h2>
             <div>
+                <!-- When user clicks on the img the closePopUp event will emit. The parent component 
+                 FootballLatestStats listens after this event with help from @closePopUp="ClosePopUp" 
+                 and then it executes its own ClosePopUp function to hide the pop-up -->
                 <img @click="$emit('closePopUp')" src="../assets/illustrations/close.svg" alt="Kryds symbol">
             </div>
         </div>

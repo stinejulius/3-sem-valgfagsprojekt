@@ -12,8 +12,11 @@ const countdownHours = ref(null);
 const countdownMinutes = ref(null);
 const countdownSeconds = ref(null);
 
-const fetchComplete = ref(false);
-
+/**
+ * Async. fetches data for the next football game (w. specific team, league and season).
+ * Updates ref variables (logo, name and date).
+ * Calls SetupCountdown function.
+ */
 async function GetData() {
     const response = await fetch("https://v3.football.api-sports.io/fixtures?league=120&season=2024&team=405&next=1", {
         method: "GET",
@@ -23,27 +26,29 @@ async function GetData() {
     })
     const result = await response.json();
 
-    console.log(result);
-
-    // Next Game Info
+    // Updates Game Info
     const gameObject = result.response[0];
 
-    homeTeamName.value = gameObject.teams.home.name; // Ændrer variablens value - finder name i objektet
-    homeTeamLogo.value = gameObject.teams.home.logo; // Ændrer variablens value - finder logo i objektet
+    homeTeamName.value = gameObject.teams.home.name; // Changes the variables value - finds name in object
+    homeTeamLogo.value = gameObject.teams.home.logo;
 
-    awayTeamName.value = gameObject.teams.away.name; // Ændrer variablens value - finder name i objektet
-    awayTeamLogo.value = gameObject.teams.away.logo; // Ændrer variablens value - finder logo i objektet
+    awayTeamName.value = gameObject.teams.away.name;
+    awayTeamLogo.value = gameObject.teams.away.logo;
 
-    gameDate.value = new Date(gameObject.fixture.date); // Ændrer variablens value - finder date i objektet
+    gameDate.value = new Date(gameObject.fixture.date);
 
-    SetupCountdown();
+    SetupCountdown(); // Calls SetupCountdown() when data has been fetched and placed
 }
 GetData();
 
+/**
+ * Sets an interval that runs every second.
+ * Interval calculates and updates the countdown.
+ */
 function SetupCountdown() {
     setInterval(() => {
-        const todaysDate = new Date().getTime(); // Hent og opbevar nuværende dato
-        const distanceBetween = gameDate.value.getTime() - todaysDate; // Find distancen mellem nu og countdown datoen
+        const todaysDate = new Date().getTime(); // Get and keep the current date
+        const distanceBetween = gameDate.value.getTime() - todaysDate; // FInd the distance between now and the game date
 
         // Time calculations for days, hours, minutes and seconds
         const days = Math.floor(distanceBetween / (1000 * 60 * 60 * 24));
@@ -51,7 +56,7 @@ function SetupCountdown() {
         const minutes = Math.floor((distanceBetween % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distanceBetween % (1000 * 60)) / 1000);
 
-        // Save info in variables
+        // Update info in variables
         countdownDays.value = days;
         countdownHours.value = hours;
         countdownMinutes.value = minutes;
@@ -65,7 +70,7 @@ function SetupCountdown() {
         <h1> Næste Herre Kamp </h1>
         <div id="countdown-teams">
             <div class="team-logo-name">
-                <img class="team-img" :src="homeTeamLogo" alt="Team logo">
+                <img class="team-img" :src="homeTeamLogo" alt="Team logo"> <!-- : makes it possible to "grab" homeTeamLogo from script -->
                 <h2> {{ homeTeamName }} </h2>
             </div>
             <div id="versus-text">

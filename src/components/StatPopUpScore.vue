@@ -5,7 +5,7 @@ const props = defineProps({
         required: true,
     },
     homeTeamLogo: {
-        default: null, // Sættes da man ikke kan være sikker på at det findes i API
+        default: null, // Is put as we can't be certain that the data is in the API
     },
     homeTeamScore: {
         type: Number,
@@ -16,7 +16,7 @@ const props = defineProps({
         required: true,
     },
     awayTeamLogo: {
-        default: null, // Sættes da man ikke kan være sikker på at det findes i API
+        default: null,
     },
     awayTeamScore: {
         type: Number,
@@ -29,12 +29,12 @@ const props = defineProps({
     <section id="game-score-box">
         <div id="teams">
             <div class="teamname-logo">
-                <img v-if="homeTeamLogo" :src="homeTeamLogo" alt="Hjemmehold logo">
+                <img :src="homeTeamLogo" alt="Hjemmehold logo">
                 <p> {{ homeTeamName }} </p>
             </div>
             <p class="bold"> VS </p>
             <div class="teamname-logo">
-                <img v-if="awayTeamLogo" :src="awayTeamLogo" alt="Udehold logo">
+                <img :src="awayTeamLogo" alt="Udehold logo">
                 <p> {{ awayTeamName }} </p>
             </div>
         </div>

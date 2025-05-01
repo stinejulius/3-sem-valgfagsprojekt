@@ -2,7 +2,7 @@
 const props = defineProps({
     referee: {
         type: String,
-        required: null, // Sættes da man ikke kan være sikker på at det findes i API
+        required: null, // Null is put as we can't be certain that the data is in the API
     },
     league: {
         type: String,
