@@ -18,7 +18,7 @@ const countdownSeconds = ref(null);
  * Calls SetupCountdown function.
  */
 async function GetData() {
-    const response = await fetch("https://v3.football.api-sports.io/fixtures?league=120&season=2024&team=405&next=1", {
+    const response = await fetch("https://proxy.binau.dev/api/proxy/football/fixtures?league=120&season=2024&team=405&next=1", {
         method: "GET",
         headers: {
             "x-apisports-key": "10c1dce6b1c7f7e049a53bdbc7f8d164",

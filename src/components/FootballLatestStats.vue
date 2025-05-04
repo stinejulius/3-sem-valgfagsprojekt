@@ -11,7 +11,7 @@ const selectedFootballGameId = ref(null); // Meant to save the ID of the game th
  * Updates variable footballGames value.
  */
 async function GetGameData() {
-    const response = await fetch("https://v3.football.api-sports.io/fixtures?league=120&season=2024&team=405&last=5", {
+    const response = await fetch("https://proxy.binau.dev/api/proxy/football/fixtures?league=120&season=2024&team=405&last=5", {
         method: "GET",
         headers: {
             "x-apisports-key": "10c1dce6b1c7f7e049a53bdbc7f8d164",
